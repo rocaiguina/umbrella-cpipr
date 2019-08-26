@@ -67,7 +67,7 @@
             <div class="owl-theme">
                 <div class="owl-hero-item owl-hero-item-parallax">
                     <div class="owl-hero-image">
-                        <img src="<?php echo get_stylesheet_directory_uri(). '/images/los-chavos-de-maria/hero.jpg' ?>" />
+                        <img src="<?php the_post_thumbnail_url('full'); ?>" />
                     </div>
                     <div class="owl-hero-caption">
                         <div class="container-fluid">

@@ -18,6 +18,11 @@
                             array(
                                 'taxonomy' => 'post_tag',
                                 'field'    => 'slug',
+                                'terms'    => 'news',
+                            )
+                            array(
+                                'taxonomy' => 'post_tag',
+                                'field'    => 'slug',
                                 'terms'    => 'english',
                             )
                         ),
@@ -349,7 +354,7 @@
                     <div class="owl-hero-caption">
                         <div class="container-fluid">
                             <div class="owl-hero-post owl-hero-video-post">
-                                <a data-fancybox href="<?php echo get_the_excerpt(); ?>" class="owl-play-icon"></a>
+                                <a data-fancybox href="<?php echo get_the_content(); ?>" class="owl-play-icon"></a>
                                 <div class="row-fluid">
                                     <div class="span6">
                                         <h2 class="owl-hero-post-title"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h2>

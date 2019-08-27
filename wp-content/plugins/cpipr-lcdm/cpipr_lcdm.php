@@ -39,123 +39,6 @@ function lcdm_install_municipios_db_table () {
 register_activation_hook( __FILE__, 'lcdm_install_municipios_db_table' );
 
 
-// add_action( 'init', 'create_video_cpt' );
-
-// function get_video_cpt_supports() {
-//     return array('title', 'editor', 'thumbnail', 'excerpt', 'revisions');
-// }
-
-// function create_video_cpt() {
-//     $labels = array(
-//         'name'                  => 'Videos',
-//         'all_items'             => 'All Videos',
-//         'singular_name'         => 'Video',
-//         'add_new'               => 'Add New',
-//         'add_new_item'          => 'Add New Video',
-//         'edit'                  => 'Edit',
-//         'edit_item'             => 'Edit Video',
-//         'new_item'              => 'New Video',
-//         'view'                  => 'View',
-//         'view_item'             => 'View Video',
-//         'search_items'          => 'Search Video',
-//         'not_found'             => 'No videos found',
-//         'not_found_in_trash'    => 'No videos found in Trash'
-//     );
-
-//     $args = array(
-//         'labels'                => $labels,
-//         'exclude_from_search'   => false,
-//         'public'                => true,
-//         'menu_position'         => 5,
-//         'supports'              => get_video_cpt_supports(),
-//         'taxonomies'            => array('post_tag'),
-//         'hierarchical'          => true,
-//         'menu_icon'             => '',
-//         'has_archive'           => true,
-//         'menu_icon'             => 'dashicons-video-alt3'
-//     );
-
-//     register_post_type( 'cpipr_video', $args);
-// }
-
-// add_action( 'init', 'create_infographic_cpt' );
-
-// function get_infographic_cpt_supports() {
-//     return array('title', 'editor', 'thumbnail', 'excerpt', 'revisions');
-// }
-
-// function create_infographic_cpt() {
-//     $labels = array(
-//         'name'                  => 'Infographics',
-//         'all_items'             => 'All Infographics',
-//         'singular_name'         => 'Infographic',
-//         'add_new'               => 'Add New',
-//         'add_new_item'          => 'Add New Infographic',
-//         'edit'                  => 'Edit',
-//         'edit_item'             => 'Edit Infographic',
-//         'new_item'              => 'New Infographic',
-//         'view'                  => 'View',
-//         'view_item'             => 'View Infographic',
-//         'search_items'          => 'Search Infographic',
-//         'not_found'             => 'No infographics found',
-//         'not_found_in_trash'    => 'No infographics found in Trash'
-//     );
-
-//     $args = array(
-//         'labels'                => $labels,
-//         'exclude_from_search'   => false,
-//         'public'                => true,
-//         'menu_position'         => 5,
-//         'supports'              => get_infographic_cpt_supports(),
-//         'taxonomies'            => array('post_tag'),
-//         'hierarchical'          => true,
-//         'menu_icon'             => '',
-//         'has_archive'           => true,
-//         'menu_icon'             => 'dashicons-format-image'
-//     );
-
-//     register_post_type( 'cpipr_infographic', $args);
-// }
-
-// add_action( 'init', 'create_power_players_cpt');
-
-// function get_power_player_cpt_supports() {
-//     return array('title', 'editor', 'thumbnail', 'excerpt', 'revisions');
-// }
-
-// function create_power_players_cpt() {
-//     $labels = array(
-//         'name'                  => 'Power Players',
-//         'all_items'             => 'All Power Players',
-//         'singular_name'         => 'Power Player',
-//         'add_new'               => 'Add New',
-//         'add_new_item'          => 'Add New Power Player',
-//         'edit'                  => 'Edit',
-//         'edit_item'             => 'Edit Power Player',
-//         'new_item'              => 'New Power Player',
-//         'view'                  => 'View',
-//         'view_item'             => 'View Power Player',
-//         'search_items'          => 'Search Power Player',
-//         'not_found'             => 'No power players found',
-//         'not_found_in_trash'    => 'No power players found in Trash'
-//     );
-
-//     $args = array(
-//         'labels'                => $labels,
-//         'exclude_from_search'   => false,
-//         'public'                => true,
-//         'menu_position'         => 5,
-//         'supports'              => get_power_player_cpt_supports(),
-//         'taxonomies'            => array('post_tag'),
-//         'hierarchical'          => true,
-//         'menu_icon'             => '',
-//         'has_archive'           => true,
-//         'menu_icon'             => 'dashicons-groups'
-//     );
-
-//     register_post_type( 'cpipr_power_player', $args);
-// }
-
 /* Add filter for historias posts */
 
 add_filter('img_caption_shortcode', 'lcdm_caption_shortcode', 20, 3);
@@ -306,6 +189,11 @@ function ajax_lcdm_historias () {
             array(
                 'taxonomy' => 'post_tag',
                 'field'    => 'slug',
+                'terms'    => 'news',
+            ),
+            array(
+                'taxonomy' => 'post_tag',
+                'field'    => 'slug',
                 'terms'    => get_lcdm_language($lang),
             )
         ),
@@ -402,7 +290,7 @@ function ajax_lcdm_power_players () {
     $lang = isset($_GET['lang']) ? $_GET['lang'] : 'spanish';
 
     $conditions = array(
-        'post_type' => 'cpipr_power_player',
+        'post_type' => 'post',
         'tax_query' => array(
             array(
                 'taxonomy' => 'series',
@@ -453,7 +341,7 @@ function ajax_lcdm_videos () {
     $lang = isset($_GET['lang']) ? $_GET['lang'] : 'spanish';
 
     $conditions = array(
-        'post_type' => 'cpipr_video',
+        'post_type' => 'post',
         'tax_query' => array(
             array(
                 'taxonomy' => 'series',

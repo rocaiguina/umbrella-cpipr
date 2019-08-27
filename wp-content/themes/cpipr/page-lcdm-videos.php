@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <?php
                 $args = array(
-                    'post_type' => 'cpipr_video',
+                    'post_type' => 'post',
                     'tax_query' => array(
                         array(
                             'taxonomy' => 'series',
@@ -53,7 +53,7 @@
             <div id="video-player-section" class="cpipr-video-player">
                 <!-- 16:9 aspect ratio -->
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe id="video-player" class="embed-responsive-item" src="<?php echo get_the_excerpt(); ?>"></iframe>
+                    <iframe id="video-player" class="embed-responsive-item" src="<?php echo get_the_content(); ?>"></iframe>
                 </div>
             </div>
             <?php } wp_reset_postdata(); ?>

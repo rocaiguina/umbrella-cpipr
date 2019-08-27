@@ -74,10 +74,8 @@
         <div class="lcdm-section lcdm-section-post">
             <div class="container-fluid">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe src="<?php echo get_the_excerpt(); ?>"></iframe>
+                    <iframe src="<?php echo get_the_content(); ?>"></iframe>
                 </div>
-                <br/>
-                <?php the_content();?> 
             </div>
         </div>
 

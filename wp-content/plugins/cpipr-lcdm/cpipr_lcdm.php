@@ -393,13 +393,12 @@ function cpipr_lcdm_wp_enqueue_scripts () {
         'en-lcdm-glosario',
         'en-lcdm-mapas-de-la-recuperacion',
         'en-lcdm-videos',
-        'los-chavos-de-maria',
         'lcdm-glosario',
         'lcdm-mapas-de-la-recuperacion',
         'lcdm-videos'
     );
 
-    if (is_page($lcdm_pages)) {
+    if (is_page($lcdm_pages) || is_tax('series', 'los-chavos-de-maria') ) {
         wp_enqueue_style(
             'fancyBox',
             get_stylesheet_directory_uri() . '/lib/fancybox/dist/jquery.fancybox.css'
@@ -544,9 +543,10 @@ function lcdm_historias_js () {
  */
 add_action('wp_footer', 'lcdm_mapas_de_la_recuperacion_js');
 function lcdm_mapas_de_la_recuperacion_js () {
+    global $post;
     $mapas_de_la_recuperacion_pages = array(
         'en-lcdm-mapas-de-la-recuperacion',
-        'lcdm-mapas-de-la-recuperacion'
+        'lcdm-mapas-de-la-recuperacion',
     );
     if (is_page($mapas_de_la_recuperacion_pages)) {
         wp_enqueue_script(
@@ -605,10 +605,9 @@ function lcdm_videos_js () {
 add_action('wp_footer', 'lcdm_home_js');
 function lcdm_home_js () {
     $landing_pages = array(
-        'en-los-chavos-de-maria',
-        'los-chavos-de-maria'
+        'en-los-chavos-de-maria'
     );
-    if (is_page($landing_pages)) {
+    if (is_page($landing_pages) || is_tax('series', 'los-chavos-de-maria')) {
         wp_enqueue_script(
             'lcdm-home',
             get_stylesheet_directory_uri() . '/lib/lcdm/home.js',

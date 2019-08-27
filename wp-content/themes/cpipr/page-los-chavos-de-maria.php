@@ -118,8 +118,8 @@
                             $chavos_query->the_post();
                     ?>
                     <div class="owl-hero-item">
-                        <div class="lcdm-owl-overlay"></div>
                         <a href="<?php the_permalink();?>">
+                            <div class="lcdm-owl-overlay"></div>
                             <?php echo the_post_thumbnail('full') ?>    
                         </a>
                     </div>
@@ -287,8 +287,8 @@
                             $chavos_query->the_post();
                     ?>
                     <div class="owl-hero-item">
-                        <div class="lcdm-owl-overlay"></div>
                         <a href="<?php the_permalink();?>">
+                            <div class="lcdm-owl-overlay"></div>
                             <?php echo the_post_thumbnail('full') ?>    
                         </a>
                     </div>

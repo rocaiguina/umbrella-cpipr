@@ -19,7 +19,7 @@
                                 'taxonomy' => 'post_tag',
                                 'field'    => 'slug',
                                 'terms'    => 'news',
-                            )
+                            ),
                             array(
                                 'taxonomy' => 'post_tag',
                                 'field'    => 'slug',

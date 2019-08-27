@@ -25,8 +25,18 @@
         <div class="container-fluid">
             <?php
                 $args = array(
-                    'post_type' => 'cpipr_video',
+                    'post_type' => 'post',
                     'tax_query' => array(
+                        array(
+                            'taxonomy' => 'series',
+                            'field'    => 'slug',
+                            'terms'    => 'los-chavos-de-maria',
+                        ),
+                        array(
+                            'taxonomy' => 'post_tag',
+                            'field'    => 'slug',
+                            'terms'    => 'video',
+                        ),
                         array(
                             'taxonomy' => 'post_tag',
                             'field'    => 'slug',

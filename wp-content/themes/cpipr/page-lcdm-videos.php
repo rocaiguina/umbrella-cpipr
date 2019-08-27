@@ -28,6 +28,16 @@
                     'post_type' => 'cpipr_video',
                     'tax_query' => array(
                         array(
+                            'taxonomy' => 'series',
+                            'field'    => 'slug',
+                            'terms'    => 'los-chavos-de-maria',
+                        ),
+                        array(
+                            'taxonomy' => 'post_tag',
+                            'field'    => 'slug',
+                            'terms'    => 'video',
+                        ),
+                        array(
                             'taxonomy' => 'post_tag',
                             'field'    => 'slug',
                             'terms'    => 'spanish',

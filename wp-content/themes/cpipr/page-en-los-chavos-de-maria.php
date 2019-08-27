@@ -79,8 +79,18 @@
                 <div id="power-players-hero-carousel" class="owl-carousel owl-theme">
                     <?php
                         $args = array(
-                            'post_type' => 'cpipr_power_player',
+                            'post_type' => 'post',
                             'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'series',
+                                    'field'    => 'slug',
+                                    'terms'    => 'los-chavos-de-maria',
+                                ),
+                                array(
+                                    'taxonomy' => 'post_tag',
+                                    'field'    => 'slug',
+                                    'terms'    => 'powerplayer',
+                                ),
                                 array(
                                     'taxonomy' => 'post_tag',
                                     'field'    => 'slug',
@@ -238,8 +248,18 @@
                 <div id="inphographic-hero-carousel" class="owl-carousel owl-theme">
                     <?php
                         $args = array(
-                            'post_type' => 'cpipr_infographic',
+                            'post_type' => 'post',
                             'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'series',
+                                    'field'    => 'slug',
+                                    'terms'    => 'los-chavos-de-maria',
+                                ),
+                                array(
+                                    'taxonomy' => 'post_tag',
+                                    'field'    => 'slug',
+                                    'terms'    => 'graphic',
+                                ),
                                 array(
                                     'taxonomy' => 'post_tag',
                                     'field'    => 'slug',
@@ -292,8 +312,18 @@
             <div id="video-hero-carousel" class="owl-carousel owl-theme">
                 <?php
                     $args = array(
-                        'post_type' => 'cpipr_video',
+                        'post_type' => 'post',
                         'tax_query' => array(
+                            array(
+                                'taxonomy' => 'series',
+                                'field'    => 'slug',
+                                'terms'    => 'los-chavos-de-maria',
+                            ),
+                            array(
+                                'taxonomy' => 'post_tag',
+                                'field'    => 'slug',
+                                'terms'    => 'video',
+                            ),
                             array(
                                 'taxonomy' => 'post_tag',
                                 'field'    => 'slug',

@@ -193,5 +193,8 @@
             })(jQuery);
         </script>
 
+        <script src="<?php echo get_stylesheet_directory_uri(). '/../largo/lib/navis-slideshows/vendor/slick/slick.min.js' ?>" type="text/javascript"></script>
+        <script src="<?php echo get_stylesheet_directory_uri(). '/../largo/lib/navis-slideshows/js/navis-slideshows.js' ?>" type="text/javascript"></script>
+
     </body>
 </html>

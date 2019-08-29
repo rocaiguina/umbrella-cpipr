@@ -786,6 +786,11 @@ textarea.form-control {
   	margin-right: auto;
   	margin-left: auto;
 }
+.lcdm-section-post .wp-media-credit,
+.lcdm-section-post .wp-caption-text {
+	text-align: left;
+}
+
 @media (min-width: 768px) {
   	.lcdm-section-post .wp-caption .wp-media-credit,
   	.lcdm-section-post .wp-caption .wp-caption-text {

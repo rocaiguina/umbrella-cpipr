@@ -70,68 +70,73 @@
     <?php get_template_part('partials/los-chavos-de-maria/en/menu'); ?>
 
     <!-- Power players section -->
-    <div class="lcdm-section lcdm-section-graficas">
+    <div class="lcdm-section lcdm-section-powerplayers">
         <div class="lcdm-section-title">
             <i class="lcdm-icon lcdm-icon-personajes"></i>
             <div>POWER<br/>PLAYERS</div>
         </div>
 
-        <div class="container-fluid">
-            <br/>
-            <br/>
-            <br/>
-            <div class="owl-hero-carousel">
-                <div id="power-players-hero-carousel" class="owl-carousel owl-theme">
-                    <?php
-                        $args = array(
-                            'post_type' => 'post',
-                            'tax_query' => array(
-                                array(
-                                    'taxonomy' => 'series',
-                                    'field'    => 'slug',
-                                    'terms'    => 'los-chavos-de-maria',
-                                ),
-                                array(
-                                    'taxonomy' => 'post_tag',
-                                    'field'    => 'slug',
-                                    'terms'    => 'powerplayer',
-                                ),
-                                array(
-                                    'taxonomy' => 'post_tag',
-                                    'field'    => 'slug',
-                                    'terms'    => 'featured',
-                                ),
-                                array(
-                                    'taxonomy' => 'post_tag',
-                                    'field'    => 'slug',
-                                    'terms'    => 'english',
-                                )
+        <div class="owl-hero-carousel">
+            <div id="power-players-hero-carousel" class="owl-carousel owl-theme">
+                <?php
+                    $args = array(
+                        'post_type' => 'post',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'series',
+                                'field'    => 'slug',
+                                'terms'    => 'los-chavos-de-maria',
                             ),
-                            'order' => 'DESC',
-                            'posts_per_page' => 5,
-                            'post_status' => 'publish'
-                        );
-                        $chavos_query = new WP_Query($args);
-                        $has_graficas_posts = $chavos_query->have_posts();
-                        while ($chavos_query->have_posts()) {
-                            $chavos_query->the_post();
-                    ?>
-                    <div class="owl-hero-item">
-                        <a href="<?php the_permalink();?>">
-                        <div class="lcdm-owl-overlay"></div>
-                            <?php echo the_post_thumbnail('full') ?>    
-                        </a>
+                            array(
+                                'taxonomy' => 'post_tag',
+                                'field'    => 'slug',
+                                'terms'    => 'powerplayer',
+                            ),
+                            array(
+                                'taxonomy' => 'post_tag',
+                                'field'    => 'slug',
+                                'terms'    => 'featured',
+                            ),
+                            array(
+                                'taxonomy' => 'post_tag',
+                                'field'    => 'slug',
+                                'terms'    => 'english',
+                            )
+                        ),
+                        'order' => 'DESC',
+                        'posts_per_page' => 5,
+                        'post_status' => 'publish'
+                    );
+                    $chavos_query = new WP_Query($args);
+                    $has_powerplayers_posts = $chavos_query->have_posts();
+                    while ($chavos_query->have_posts()) {
+                        $chavos_query->the_post();
+                ?>
+                <div class="owl-hero-item" style="background-image: url('<?php echo the_post_thumbnail_url('full') ?>')">
+                    <div class="lcdm-owl-overlay"></div>
+                    <div class="owl-hero-caption">
+                        <div class="container-fluid">
+                            <div class="owl-hero-post">
+                                <div class="row-fluid">
+                                    <div class="span6">
+                                        <h2 class="owl-hero-post-title"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h2>
+                                    </div>                                        
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <?php } wp_reset_postdata();?>
                 </div>
+                <?php } wp_reset_postdata();?>
             </div>
-            <?php if ($has_graficas_posts): ?>
-            <div id="power-player-controls" class="owl-carousel owl-loaded owl-theme owl-theme-blue owl-default-controls owl-inline-controls">
-                <div class="owl-controls">
-                    <div class="owl-nav owl-nav-lcdm"></div>
-                    <div class="owl-dots"></div>
+            <?php if ($has_powerplayers_posts): ?>
+            <div id="power-player-controls" class="owl-carousel owl-loaded owl-theme owl-hero-controls owl-default-controls owl-inline-controls">
+                <div class="container-fluid">
+                    <div class="owl-controls">
+                        <div class="owl-nav owl-nav-lcdm"></div>
+                        <div class="owl-dots"></div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo get_permalink( get_page_by_path( 'en-lcdm-personajes-de-la-recuperacion' ) ) ?>" class="btn btn-white-blue">View All</a>
                 </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo get_permalink( get_page_by_path( 'en-lcdm-personajes-de-la-recuperacion' ) ) ?>" class="btn btn-blue">View All</a>
             </div>
             <?php endif; ?>
         </div>
@@ -471,7 +476,7 @@
     </div>
 
     <!-- Twitter feed -->
-    <div class="lcdm-section lcdm-section-twitter">
+    <div id="help-us-section" class="lcdm-section lcdm-section-twitter">
         <div class="lcdm-section-title">
             <i class="lcdm-icon lcdm-icon-help"></i>
             <div>HELP US</div>

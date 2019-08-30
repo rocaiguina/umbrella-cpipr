@@ -806,6 +806,18 @@ textarea.form-control {
 .lcdm-section-post .wp-caption-text {
 	text-align: left;
 }
+.lcdm-section-post .navis-slideshow {
+	margin-bottom: 60px;
+}
+.lcdm-section-post .navis-slideshow .slick-slide img {
+	max-height: none;
+}
+.lcdm-section-post .navis-slideshow .slick-slide .wp-media-credit,
+.lcdm-section-post .navis-slideshow .slick-slide .wp-caption-text,
+.lcdm-section-post .navis-slideshow .slick-slide .permalink,
+.lcdm-section-post .navis-slideshow .slick-dots {
+	display: none !important;
+}
 
 @media (min-width: 768px) {
   	.lcdm-section-post .wp-caption .wp-media-credit,

@@ -80,6 +80,15 @@ function lcdm_caption_shortcode ($text, $atts, $content ) {
     return $out;
 }
 
+/* Add filter for gallery inside historias posts */
+add_filter('post_gallery', 'lcdm_post_gallery', 20, 2);
+
+function lcdm_post_gallery ($output, $attr) {
+    if(is_page_template('lcdm-single.php')) {
+        return '</div>' . $output . '<div class="container">';
+    }
+    return $output;
+}
 
 
 //------------------------------------- Add Ajax Actions ---------------------------------------

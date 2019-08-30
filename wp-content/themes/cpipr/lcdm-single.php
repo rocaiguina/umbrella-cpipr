@@ -73,14 +73,14 @@
                     <div class="lcdm-owl-overlay"></div>
                     <div class="owl-hero-caption">
                         <div class="container-fluid">
-                            <div class="owl-hero-post">
+                            <div class="owl-hero-post pb60">
                                 <div class="row-fluid">
                                     <div class="span6">
                                         <h2 class="owl-hero-post-title"><?php the_title(); ?></h2>
                                     </div>
                                 </div>
                                 <div class="owl-hero-journalist">
-                                    <em><?php  echo $lang == 'spanish' ? 'POR' : 'BY' ?></em> <?php echo get_avatar( get_the_author_meta( 'ID' ), 68, '', '', array('class' => 'owl-hero-journalist-avatar') ); ?> <span class="owl-hero-journalist-name"><?php the_author(); ?></span> | <span class="owl-hero-post-date"><?php the_date("j F Y"); ?></span>
+                                    <?php lcdm_byline(); ?>
                                 </div>
                             </div>
                         </div>
@@ -103,19 +103,8 @@
                     <div class="span8">
                         <div class="lcdm-journalist">
                             <h3><?php echo $lang == 'spanish' ? 'Biografía del Periodista' : 'Journalist Biography' ?></h3>
-                            <div class="row-fluid">
-                                <div class="span5">
-                                    <div class="lcdm-journalist-picture">
-                                        <?php echo get_avatar( get_the_author_meta( 'ID' ), 324 ); ?>
-                                    </div>
-                                </div>
-                                <div class="span7">
-                                    <div class="lcdm-journalist-personal-info">
-                                        <h4><?php the_author(); ?></h4>
-                                        <p><?php the_author_meta('description') ?></p>
-                                    </div>
-                                </div>
-                            </div>
+
+                            <?php lcdm_byline(true, true); ?>
                         </div>
                     </div>
                 </div>

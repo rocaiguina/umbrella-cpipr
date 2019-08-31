@@ -73,14 +73,16 @@
                     <div class="lcdm-owl-overlay"></div>
                     <div class="owl-hero-caption">
                         <div class="container-fluid">
-                            <div class="owl-hero-post pb60">
-                                <div class="row-fluid">
-                                    <div class="span6">
+                            <div class="owl-hero-post">
+                                <div style="display: flex;flex-flow: row wrap;justify-content: space-between;
+    align-items: flex-start;">
+                                    <div style="max-width: 800px;">
                                         <h2 class="owl-hero-post-title"><?php the_title(); ?></h2>
+                                        <span class="post-date owl-hero-journalist"><?php the_date()?></span>
                                     </div>
-                                </div>
-                                <div class="owl-hero-journalist">
-                                    <?php lcdm_byline(); ?>
+                                    <div class="owl-hero-journalist">
+                                        <?php lcdm_byline(); ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -732,7 +732,8 @@ textarea.form-control {
 	background-color: #2b2d2d;
 	color: #fff;
 }
-.lcdm-section-videos {
+.lcdm-section-videos,
+.lcdm-section-powerplayers {
 	padding-bottom: 0;
 	padding-top: 0;
 }

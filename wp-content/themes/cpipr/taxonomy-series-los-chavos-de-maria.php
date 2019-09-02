@@ -471,7 +471,7 @@
     </div>
 
     <!-- Twitter feed -->
-    <div class="lcdm-section lcdm-section-twitter">
+    <div id="help-us-section" class="lcdm-section lcdm-section-twitter">
         <div class="lcdm-section-title">
             <i class="lcdm-icon lcdm-icon-help"></i>
             <div>AYÚDANOS A<br/>FISCALIZAR</div>

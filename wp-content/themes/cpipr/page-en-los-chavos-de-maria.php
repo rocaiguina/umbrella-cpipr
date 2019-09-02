@@ -116,10 +116,9 @@
                         while ($chavos_query->have_posts()) {
                             $chavos_query->the_post();
                     ?>
-                    <div class="owl-hero-item">
+                    <div class="owl-hero-item lcdm-secondary-slide" style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')">
                         <a href="<?php the_permalink();?>">
-                        <div class="lcdm-owl-overlay"></div>
-                            <?php echo the_post_thumbnail('full') ?>    
+                            <div class="lcdm-owl-overlay"></div>
                         </a>
                     </div>
                     <?php } wp_reset_postdata();?>
@@ -285,10 +284,9 @@
                         while ($chavos_query->have_posts()) {
                             $chavos_query->the_post();
                     ?>
-                    <div class="owl-hero-item">
+                    <div class="owl-hero-item lcdm-secondary-slide" style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')">
                         <a href="<?php the_permalink();?>">
                             <div class="lcdm-owl-overlay"></div>
-                            <?php echo the_post_thumbnail('full') ?>    
                         </a>
                     </div>
                     <?php } wp_reset_postdata();?>

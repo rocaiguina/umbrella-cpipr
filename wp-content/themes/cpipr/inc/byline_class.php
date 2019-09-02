@@ -80,8 +80,9 @@ class Lcdm_CoAuthors_Byline extends Largo_Byline {
 }
 
 
-class Lcdm_CoAuthors_Biograpphy_Byline extends Largo_Byline {
+class Lcdm_CoAuthors_Biography_Byline extends Largo_Byline {
     function generate_byline() {
+        get_defined_vars();
         // get the coauthors for this post
         $coauthors = get_coauthors( $this->post_id );
         $out = array();
@@ -102,10 +103,28 @@ class Lcdm_CoAuthors_Biograpphy_Byline extends Largo_Byline {
         }
 
         $authors = implode('', $out);
+        $byline_header = '';
+        $lang = $this->lang;
+   
+        if ($lang == "spanish") {
+            
+            if ( $coauthors.length > 1) {
+                $byline_header = '<h3>Biografías de los Periodistas</h3>';
+            } else {
+                $byline_header = '<h3>Biografía del Periodista</h3>';
+            }
+        } else {
+            if ( $coauthors.length > 1) {
+                $byline_header = "<h3>Journalists' Biographies</h3>";
+            } else {
+                $byline_header = "<h3>Journalist's Biography</h3>";
+            } 
+        }
 
         // Now assemble the One True Byline
         ob_start();
-        echo '<div>' . $authors . '</div>';
+       
+        echo $byline_header . '<div>' . $authors . '</div>'; 
         $this->output = ob_get_clean();
     }
 

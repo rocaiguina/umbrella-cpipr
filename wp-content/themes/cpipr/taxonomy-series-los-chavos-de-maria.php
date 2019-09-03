@@ -79,52 +79,44 @@
 
         <div class="owl-hero-carousel">
             <div id="power-players-hero-carousel" class="owl-carousel owl-theme">
-                <?php
-                    $args = array(
-                        'post_type' => 'post',
-                        'tax_query' => array(
-                            array(
-                                'taxonomy' => 'series',
-                                'field'    => 'slug',
-                                'terms'    => 'los-chavos-de-maria',
+                    <?php
+                        $args = array(
+                            'post_type' => 'post',
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'series',
+                                    'field'    => 'slug',
+                                    'terms'    => 'los-chavos-de-maria',
+                                ),
+                                array(
+                                    'taxonomy' => 'post_tag',
+                                    'field'    => 'slug',
+                                    'terms'    => 'powerplayer',
+                                ),
+                                array(
+                                    'taxonomy' => 'post_tag',
+                                    'field'    => 'slug',
+                                    'terms'    => 'featured',
+                                ),
+                                array(
+                                    'taxonomy' => 'post_tag',
+                                    'field'    => 'slug',
+                                    'terms'    => 'spanish',
+                                )
                             ),
-                            array(
-                                'taxonomy' => 'post_tag',
-                                'field'    => 'slug',
-                                'terms'    => 'powerplayer',
-                            ),
-                            array(
-                                'taxonomy' => 'post_tag',
-                                'field'    => 'slug',
-                                'terms'    => 'featured',
-                            ),
-                            array(
-                                'taxonomy' => 'post_tag',
-                                'field'    => 'slug',
-                                'terms'    => 'spanish',
-                            )
-                        ),
-                        'order' => 'DESC',
-                        'posts_per_page' => 5,
-                        'post_status' => 'publish'
-                    );
-                    $chavos_query = new WP_Query($args);
-                    $has_powerplayers_posts = $chavos_query->have_posts();
-                    while ($chavos_query->have_posts()) {
-                        $chavos_query->the_post();
-                ?>
-                <div class="owl-hero-item" style="background-image: url('<?php echo the_post_thumbnail_url('full') ?>')">
-                    <div class="lcdm-owl-overlay"></div>
-                    <div class="owl-hero-caption">
-                        <div class="container-fluid">
-                            <div class="owl-hero-post">
-                                <div class="row-fluid">
-                                    <div class="span6">
-                                        <h2 class="owl-hero-post-title"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h2>
-                                    </div>                                        
-                                </div>
-                            </div>
-                        </div>
+                            'order' => 'DESC',
+                            'posts_per_page' => 5,
+                            'post_status' => 'publish'
+                        );
+                        $chavos_query = new WP_Query($args);
+                        $has_graficas_posts = $chavos_query->have_posts();
+                        while ($chavos_query->have_posts()) {
+                            $chavos_query->the_post();
+                    ?>
+                    <div class="owl-hero-item lcdm-secondary-slide" style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')">
+                        <a href="<?php the_permalink();?>">
+                            <div class="lcdm-owl-overlay"></div>
+                        </a>
                     </div>
                 </div>
                 <?php } wp_reset_postdata();?>
@@ -291,10 +283,9 @@
                         while ($chavos_query->have_posts()) {
                             $chavos_query->the_post();
                     ?>
-                    <div class="owl-hero-item">
+                    <div class="owl-hero-item lcdm-secondary-slide" style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')">
                         <a href="<?php the_permalink();?>">
-                            <div class="lcdm-owl-overlay"></div>
-                            <?php echo the_post_thumbnail('full') ?>    
+                            <div class="lcdm-owl-overlay"></div>   
                         </a>
                     </div>
                     <?php } wp_reset_postdata();?>

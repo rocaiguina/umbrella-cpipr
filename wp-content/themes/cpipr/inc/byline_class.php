@@ -40,8 +40,9 @@ class Lcdm_CoAuthors_Byline extends Largo_Byline {
 
         // Now assemble the One True Byline
         ob_start();
-        echo '<ul class="journalists-byline"><li class="by"><em>' . __( 'By', 'largo' ) . '</em></li>' . $authors;
-        $this->maybe_published_date();
+        echo '<ul class="journalists-byline" style="display: flex;
+        flex-flow: column;"><li class="by"><em>' . __( 'By', 'largo' ) . '</em></li>' . $authors;
+        // $this->maybe_published_date();
         //$this->edit_link();
         echo '</ul>';
 
@@ -71,7 +72,7 @@ class Lcdm_CoAuthors_Byline extends Largo_Byline {
      */
     function published_date() {
         echo sprintf(
-            '<li class="post-date"><span class="sep">|</span> <time class="entry-date updated dtstamp pubdate" datetime="%1$s">%2$s</time></li>',
+            '<li class="post-date"><time class="entry-date updated dtstamp pubdate" datetime="%1$s">%2$s</time></li>',
             esc_attr( get_the_date( 'c', $this->post_id ) ),
             largo_time( false, $this->post_id )
         );
@@ -110,10 +111,10 @@ class Lcdm_CoAuthors_Biograpphy_Byline extends Largo_Byline {
 
     /**
      * A coauthors avatar
-     */    
+     */        
     function avatar() {
-        $avatar = get_avatar( $this->author_id, 324, '', get_the_author_meta( 'display_name', $this->author_id ) );
-        $output = '<div class="span5"><div class="lcdm-journalist-picture">' . $avatar . '</div></div>';
+        $avatar = largo_get_avatar_src( $this->author_id, 500, '', get_the_author_meta( 'display_name', $this->author_id ) );
+        $output = '<div class="span5"><div class="lcdm-journalist-picture" style="background-image:url(' . $avatar[0] . ');height: 300px;width: 300px;border-radius: 50%;background-size: cover;border: 8px solid #5170ae;"></div></div>';
         echo $output;
     }
 

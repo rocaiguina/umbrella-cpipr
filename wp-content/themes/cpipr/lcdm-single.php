@@ -103,9 +103,7 @@
                     <div class="span2"></div>
                     <div class="span8">
                         <div class="lcdm-journalist">
-                            <h3><?php echo $lang == 'spanish' ? 'Biografía del Periodista' : 'Journalist Biography' ?></h3>
-
-                            <?php lcdm_byline(true, true); ?>
+                            <?php $lang == 'spanish' ? lcdm_byline(true, true) : lcdm_byline(true, true, english) ?>
                         </div>
                     </div>
                 </div>

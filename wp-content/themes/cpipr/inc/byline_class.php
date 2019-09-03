@@ -16,6 +16,11 @@ class Lcdm_CoAuthors_Byline extends Largo_Byline {
      */
     public $author_id;
 
+    function populate_variables( $args ) {
+        parent::populate_variables($args);
+        $this->lang = $args['lang'];
+    }
+
     function generate_byline() {
         // get the coauthors for this post
         $coauthors = get_coauthors( $this->post_id );
@@ -40,8 +45,11 @@ class Lcdm_CoAuthors_Byline extends Largo_Byline {
 
         // Now assemble the One True Byline
         ob_start();
+        $by = $this->lang == 'spanish' ? 'Por' : 'By';
+
+
         echo '<ul class="journalists-byline" style="display: flex;
-        flex-flow: column;"><li class="by"><em>' . __( 'By', 'largo' ) . '</em></li>' . $authors;
+        flex-flow: column;"><li class="by"><em>' . $by . '</em></li>' . $authors;
         // $this->maybe_published_date();
         //$this->edit_link();
         echo '</ul>';
@@ -81,6 +89,12 @@ class Lcdm_CoAuthors_Byline extends Largo_Byline {
 
 
 class Lcdm_CoAuthors_Biography_Byline extends Largo_Byline {
+    
+    function populate_variables( $args ) {
+        parent::populate_variables($args);
+        $this->lang = $args['lang'];
+    }
+
     function generate_byline() {
         get_defined_vars();
         // get the coauthors for this post
@@ -108,13 +122,13 @@ class Lcdm_CoAuthors_Biography_Byline extends Largo_Byline {
    
         if ($lang == "spanish") {
             
-            if ( $coauthors.length > 1) {
+            if ( count($coauthors) > 1) {
                 $byline_header = '<h3>Biografías de los Periodistas</h3>';
             } else {
                 $byline_header = '<h3>Biografía del Periodista</h3>';
             }
         } else {
-            if ( $coauthors.length > 1) {
+            if ( count($coauthors) > 1) {
                 $byline_header = "<h3>Journalists' Biographies</h3>";
             } else {
                 $byline_header = "<h3>Journalist's Biography</h3>";

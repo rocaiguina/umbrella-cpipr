@@ -407,64 +407,6 @@
         </div>
     </div>
 
-    <!-- Glosario section -->
-    <div class="lcdm-section lcdm-section-glosario">
-        <div class="lcdm-section-title">
-            <i class="lcdm-icon lcdm-icon-glosario"></i>
-            <div>GLOSARIO</div>
-        </div>
-        <div class="container-fluid">
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <div class="owl-glossary-carousel">
-                <div id="glossary-carousel" class="owl-carousel owl-theme">
-                    <?php
-                        $args = array(
-                            'post_type' => 'glossary',
-                            'tax_query' => array(
-                                array(
-                                    'taxonomy' => 'glossary-cat',
-                                    'field'    => 'slug',
-                                    'terms'    => 'spanish',
-                                )
-                            ),
-                            'order' => 'DESC',
-                            'posts_per_page' => 5,
-                        );
-                        $chavos_category = get_category_by_slug('los-chavos-de-maria');
-                        $chavos_query = new WP_Query($args);
-                        $has_glosario_posts = $chavos_query->have_posts();
-                        while ($chavos_query->have_posts()) {
-                            $chavos_query->the_post();
-                    ?>
-                    <div class="owl-glossary-item">
-                        <div class="row-fluid">
-                            <div class="span6">
-                                <h2 class="glossary-title"><?php the_title(); ?></h2>
-                            </div>
-                            <div class="span6">
-                                <div class="glossary-description">
-                                    <?php the_content(); ?>    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php } wp_reset_postdata();?>
-                </div>
-                <?php if ($has_glosario_posts): ?>
-                <div id="glossary-controls" class="owl-carousel owl-loaded owl-theme owl-theme-white owl-default-controls owl-inline-controls">
-                    <div class="owl-controls">
-                        <div class="owl-nav owl-nav-lcdm"></div>
-                        <div class="owl-dots"></div>
-                    </div>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo get_permalink( get_page_by_path( 'lcdm-glosario' ) ) ?>" class="btn btn-white-blue">VER TODOS</a>    
-                </div>
-                <?php endif; ?>
-            </div>                    
-        </div>
-    </div>
 
     <!-- Twitter feed -->
     <div id="help-us-section" class="lcdm-section lcdm-section-twitter">

@@ -878,9 +878,9 @@ textarea.form-control {
 	border-radius: 50%;
 	box-sizing: border-box;
 }
-.lcdm-journalist-personal-info {
+/* .lcdm-journalist-personal-info {
 	padding: 0px 40px;
-}
+} */
 .lcdm-journalist-personal-info a {
 	color: inherit;
 }

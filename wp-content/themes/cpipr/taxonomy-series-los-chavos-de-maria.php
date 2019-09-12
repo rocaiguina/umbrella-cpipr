@@ -38,7 +38,7 @@
                         $chavos_query->the_post();
                 ?>
                 <div class="owl-hero-item" style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')">
-                    <div class="lcdm-owl-overlay"></div>
+                    <!-- <div class="lcdm-owl-overlay"></div> -->
                     <div class="owl-hero-caption">
                         <div class="container-fluid">
                             <div class="owl-hero-post">
@@ -115,7 +115,7 @@
                     ?>
                     <div class="owl-hero-item lcdm-secondary-slide" style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')">
                         <a href="<?php the_permalink();?>">
-                            <div class="lcdm-owl-overlay"></div>
+                            <!-- <div class="lcdm-owl-overlay"></div> -->
                         </a>
                     </div>
                 </div>
@@ -285,7 +285,7 @@
                     ?>
                     <div class="owl-hero-item lcdm-secondary-slide" style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')">
                         <a href="<?php the_permalink();?>">
-                            <div class="lcdm-owl-overlay"></div>   
+                            <!-- <div class="lcdm-owl-overlay"></div>    -->
                         </a>
                     </div>
                     <?php } wp_reset_postdata();?>
@@ -346,7 +346,7 @@
                         $chavos_query->the_post();
                 ?>
                 <div class="owl-hero-item" style="background-image: url('<?php echo the_post_thumbnail_url('full') ?>')">
-                    <div class="lcdm-owl-overlay"></div>
+                    <!-- <div class="lcdm-owl-overlay"></div> -->
                     <div class="owl-hero-caption">
                         <div class="container-fluid">
                             <div class="owl-hero-post owl-hero-video-post">

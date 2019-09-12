@@ -2,7 +2,7 @@
     <div class="card card-video">
         <div class="card-image-top">
             <?php echo the_post_thumbnail('full') ?>
-            <div class="card-image-overlay"></div>
+            <!-- <div class="card-image-overlay"></div> -->
             <a href="<?php echo get_the_content(); ?>" class="card-video-play"></a>
         </div>
         <div class="card-body">

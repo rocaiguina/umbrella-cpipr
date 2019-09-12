@@ -70,7 +70,7 @@
                     <div class="owl-hero-image">
                         <img src="<?php the_post_thumbnail_url('full'); ?>" />
                     </div>
-                    <div class="lcdm-owl-overlay"></div>
+                    <!-- <div class="lcdm-owl-overlay"></div> -->
                     <div class="owl-hero-caption">
                         <div class="container-fluid">
                             <div class="owl-hero-post">
@@ -143,7 +143,7 @@
                     <div class="span4">
                         <div class="card card-inphographic">
                             <div class="card-image-top">
-                                <div class="lcdm-owl-overlay"></div>
+                                <!-- <div class="lcdm-owl-overlay"></div> -->
                                 <?php echo the_post_thumbnail('rect_thumb') ?>
                             </div>
                             <div class="card-body">

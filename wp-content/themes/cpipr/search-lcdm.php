@@ -70,19 +70,6 @@
         <?php get_template_part('partials/los-chavos-de-maria/' . ($lang == 'spanish' ? 'es' : 'en') .'/header'); ?>
         <?php get_template_part('partials/los-chavos-de-maria/' . ($lang == 'spanish' ? 'es' : 'en') .'/menu'); ?>
 
-        <!-- Hero Page Title  -->
-        <div class="lcdm-hero-page-title-wrapper">
-            <div class="lcdm-hero-page-title-overlay">
-                <div class="lcdm-hero-page-title-media">
-                    <div class="lcdm-hero-page-title-icon">
-                        <i class="lcdm-icon lcdm-icon-search"></i>
-                    </div>
-                    <div class="lcdm-hero-page-title">
-                        <h1><?php echo $lang == 'english' ? 'SEARCH' : 'BÚSQUEDAS' ?></h1>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="lcdm-search-tags">
             <div class="container-fluid">

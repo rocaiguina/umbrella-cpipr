@@ -65,11 +65,9 @@
 
         <div class="owl-hero-carousel">
             <div class="owl-theme">
-                <div class="owl-hero-item owl-hero-item-parallax">
+                <div class="owl-hero-item" style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')">
                     
-                    <div class="owl-hero-image">
-                        <img src="<?php the_post_thumbnail_url('full'); ?>" />
-                    </div>
+                    
                     <!-- <div class="lcdm-owl-overlay"></div> -->
                     <div class="owl-hero-caption">
                         <div class="container-fluid">

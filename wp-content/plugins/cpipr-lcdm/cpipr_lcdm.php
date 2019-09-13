@@ -108,9 +108,25 @@ function ajax_pr_cities_contracts () {
     $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
     $table_name = $wpdb->prefix . 'municipios';
-    $query = $wpdb->prepare('SELECT * FROM ' . $table_name . ' WHERE municipio = %s AND lang = %s', $municipio, $lang);
+    $query = $wpdb->prepare('SELECT * FROM ' . $table_name . ' WHERE municipio = %s', $municipio);
     $data = $wpdb->get_results($query);
-    wp_send_json( array('data' => $data) );
+
+    $translate = empty($GLOBALS['lcdm_lang'][$lang]) ? $GLOBALS['lcdm_lang']['es'] : $GLOBALS['lcdm_lang'][$lang];
+
+    $response = array();
+
+    foreach ( $data as $item ) {
+        $row = array(
+            'tipo_asistencia' => $item->tipo_asistencia,
+            'categoria' => empty($translate[$item->categoria]) ? $item->categoria : $translate[$item->categoria],
+            'total_obligado' => $item->total_obligado,
+            'total_desembolsado' => $item->total_desembolsado,
+            'fecha_ultimo_pago' => $item->fecha_ultimo_pago
+        );
+        array_push($response, $row);
+    }
+
+    wp_send_json( array('data' => $response) );
 }
 
 add_action('admin_post_nopriv_export_all_contracts', 'export_all_contracts');
@@ -119,7 +135,7 @@ add_action('admin_post_export_all_contracts', 'export_all_contracts');
 function export_all_contracts () {
     global $wpdb;
 
-    $lang = isset($_GET['lang']) ? $_GET['lang'] : 'spanish';
+    $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
     $table_name = $wpdb->prefix . 'municipios';
     $data = $wpdb->get_results('SELECT municipio, tipo_asistencia, categoria, total_obligado, total_desembolsado, fecha_ultimo_pago FROM ' . $table_name );
@@ -135,29 +151,16 @@ function export_all_contracts () {
     
     $output_csv = @fopen( 'php://output', 'w' );
 
-    // Put header
-    switch ($lang) {
-        case 'en':
-            $header = array(
-                'Municipality',
-                'Type of assistance',
-                'Category/program',
-                'Total obligated/approved',
-                'Total disbursed',
-                'Date of last payment'
-            );
-        break;
-        default:
-            $header = array(
-                'Municipio',
-                'Tipo de asistencia',
-                'Categoría/programa',
-                'Total obligado/aprobado',
-                'Total desembolsado',
-                'Fecha del último pago'
-            );
-        break;
-    }
+    $translate = empty($GLOBALS['lcdm_lang'][$lang]) ? $GLOBALS['lcdm_lang']['es'] : $GLOBALS['lcdm_lang'][$lang];
+
+    $header = array(
+        $translate['Municipality'],
+        $translate['Type of assistance'],
+        $translate['Category/program'],
+        $translate['Total obligated/approved'],
+        $translate['Total disbursed'],
+        $translate['Date of last payment']
+    );
     
     fputcsv( $output_csv, $header );
 
@@ -165,8 +168,8 @@ function export_all_contracts () {
     foreach ( $data as $item ) {
         $row = array(
             $item->municipio,
-            $item->tipo_asistencia,
-            $item->categoria,
+            empty($translate[$item->tipo_asistencia]) ? $item->tipo_asistencia : $translate[$item->tipo_asistencia],
+            empty($translate[$item->categoria]) ? $item->categoria : $translate[$item->categoria],
             $item->total_obligado,
             $item->total_desembolsado,
             $item->fecha_ultimo_pago
@@ -185,7 +188,7 @@ function export_contracts_municipality () {
     global $wpdb;
 
     $municipio = isset($_GET['city']) ? $_GET['city'] : '-1';
-    $lang = isset($_GET['lang']) ? $_GET['lang'] : 'spanish';
+    $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
     $table_name = $wpdb->prefix . 'municipios';
     $query = $wpdb->prepare('SELECT tipo_asistencia, categoria, total_obligado, total_desembolsado, fecha_ultimo_pago FROM ' . $table_name . ' WHERE municipio = %s', $municipio);
@@ -202,35 +205,24 @@ function export_contracts_municipality () {
     
     $output_csv = @fopen( 'php://output', 'w' );
 
-    // Put header
-    switch ($lang) {
-        case 'en':
-            $header = array(
-                'Type of assistance',
-                'Category/program',
-                'Total obligated/approved',
-                'Total disbursed',
-                'Date of last payment'
-            );
-        break;
-        default:
-            $header = array(
-                'Tipo de asistencia',
-                'Categoría/programa',
-                'Total obligado/aprobado',
-                'Total desembolsado',
-                'Fecha del último pago'
-            );
-        break;
-    }
+    $translate = empty($GLOBALS['lcdm_lang'][$lang]) ? $GLOBALS['lcdm_lang']['es'] : $GLOBALS['lcdm_lang'][$lang];
+
+    $header = array(
+        $translate['Municipality'],
+        $translate['Type of assistance'],
+        $translate['Category/program'],
+        $translate['Total obligated/approved'],
+        $translate['Total disbursed'],
+        $translate['Date of last payment']
+    );
     
     fputcsv( $output_csv, $header );
 
     // Put data
     foreach ( $data as $item ) {
         $row = array(
-            $item->tipo_asistencia,
-            $item->categoria,
+            empty($translate[$item->tipo_asistencia]) ? $item->tipo_asistencia : $translate[$item->tipo_asistencia],
+            empty($translate[$item->categoria]) ? $item->categoria : $translate[$item->categoria],
             $item->total_obligado,
             $item->total_desembolsado,
             $item->fecha_ultimo_pago

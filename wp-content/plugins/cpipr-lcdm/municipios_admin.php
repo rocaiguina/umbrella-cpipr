@@ -1,5 +1,46 @@
 <?php
 
+$GLOBALS['lcdm_lang'] = array(
+    'en' => array(
+        'Municipality'                      => 'Municipality',
+        'Type of assistance'                => 'Type of assistance',
+        'Category/program'                  => 'Category/program',
+        'Total obligated/approved'          => 'Total obligated/approved',
+        'Total disbursed'                   => 'Total disbursed',
+        'Date of last payment'              => 'Date of last payment',
+        'Individual Assistance'             => 'Individual Assistance',
+        'Public Assistance'                 => 'Public Assistance',
+        'Other Needs Assistance'            => 'Other Needs Assistance',
+        'Housing Assistances'               => 'Housing Assistances',
+        'Roads and Bridges'                 => 'Roads and Bridges',
+        'Direct Administrative Cost'        => 'Direct Administrative Cost',
+        'Buildings and Equipment'           => 'Buildings and Equipment',
+        'Emergency Protective Measures'     => 'Emergency Protective Measures',
+        'Parks Recreational Others'         => 'Parks Recreational Others',
+        'Debris Removal'                    => 'Debris Removal',
+        'Utilities'                         => 'Utilities'
+    ),
+    'es' => array(
+        'Municipality'                      => 'Municipio',
+        'Type of assistance'                => 'Tipo de asistencia',
+        'Category/program'                  => 'Categoría/programa',
+        'Total obligated/approved'          => 'Total obligado/aprobado',
+        'Total disbursed'                   => 'Total desembolsado',
+        'Date of last payment'              => 'Fecha del último pago',
+        'Individual Assistance'             => 'Asistencia al individuo',
+        'Public Assistance'                 => 'Asistencia pública',
+        'Other Needs Assistance'            => 'Asistencia para otras necesidades',
+        'Housing Assistances'               => 'Asistencia para vivienda',
+        'Roads and Bridges'                 => 'Carreteras y puentes',
+        'Direct Administrative Cost'        => 'Costos Administrativos Directos',
+        'Buildings and Equipment'           => 'Edificios y equipo',
+        'Emergency Protective Measures'     => 'Medidas de protección en emergencias',
+        'Parks Recreational Others'         => 'Parques instalaciones recreativas y otros',
+        'Debris Removal'                    => 'Recogido de escombros',
+        'Utilities'                         => 'Servicio Básico'
+    )
+);
+
 /* Add adming menu */
 add_action('admin_menu', 'lcdm_municipios_setup_menu');
 
@@ -30,7 +71,6 @@ function lcdm_all_municipios_admin_page () {
                 <th>Total pareo de fondos</th>
                 <th>Fecha de último pago</th>
                 <th>Fecha de actualización</th>
-                <th>Language</th>
             </tr>
         </thead>
         <tbody>';
@@ -51,7 +91,6 @@ function lcdm_all_municipios_admin_page () {
                 <td>' . $value->total_pareo_fondos . '</td>
                 <td>' . $value->fecha_ultimo_pago . '</td>
                 <td>' . $value->fecha_actualizacion . '</td>
-                <td>' . $value->lang . '</td>
             </tr>
         ';
         $table .= $row;
@@ -93,7 +132,7 @@ function lcdm_handle_import_municipios_post () {
         $truncated = $wpdb->query('TRUNCATE TABLE ' . $table_name);
 
         if ($truncated) {
-            $imported = $wpdb->query('LOAD DATA LOCAL INFILE "' . $csv_path . '" INTO TABLE ' . $table_name . ' CHARACTER SET UTF8 FIELDS TERMINATED BY \',\' LINES TERMINATED BY \'\n\' IGNORE 1 LINES (municipio, tipo_asistencia, desastre, categoria, descripcion_categoria, total_obligado, fecha_obligacion, total_desembolsado, total_pareo_fondos, fecha_ultimo_pago, fecha_actualizacion, lang)');
+            $imported = $wpdb->query('LOAD DATA LOCAL INFILE "' . $csv_path . '" INTO TABLE ' . $table_name . ' CHARACTER SET UTF8 FIELDS TERMINATED BY \',\' LINES TERMINATED BY \'\n\' IGNORE 1 LINES (municipio, tipo_asistencia, desastre, categoria, descripcion_categoria, total_obligado, fecha_obligacion, total_desembolsado, total_pareo_fondos, fecha_ultimo_pago, fecha_actualizacion)');
             if ($imported === 0) {
                 return '
                     <div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible"> 

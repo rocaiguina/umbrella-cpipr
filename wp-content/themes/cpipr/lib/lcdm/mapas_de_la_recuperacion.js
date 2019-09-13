@@ -5,13 +5,7 @@
             case 'Public Assistance':
                 tipo_asistencia_class = 'bg-orange';
             break;
-            case 'Asistencia pública':
-                tipo_asistencia_class = 'bg-orange';
-            break;
             case 'Individual Assistance':
-                tipo_asistencia_class = 'bg-yellow';
-            break;
-            case 'Asistencia a individuos':
                 tipo_asistencia_class = 'bg-yellow';
             break;
             default:
@@ -117,7 +111,7 @@
               '<div class="assistance-type-legend">' +
                   '<div class="assistance-type assistance-type-th">TIPO DE<br/>ASISTENCIA</div>' +
                   '<div class="assistance-type assistance-type-icon orange"><i class="fa fa-circle"></i> Asistencia<br/>pública</div>' +
-                  '<div class="assistance-type assistance-type-icon yellow"><i class="fa fa-circle"></i> Asistencia<br/>a individuos</div>' +
+                  '<div class="assistance-type assistance-type-icon yellow"><i class="fa fa-circle"></i> Asistencia<br/>al individuo</div>' +
               '</div>';
           break;
         }

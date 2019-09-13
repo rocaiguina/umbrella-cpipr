@@ -1153,6 +1153,7 @@ textarea.form-control {
 	font-weight: bold;
 	margin-bottom: 10px;
 	text-transform: uppercase;
+	margin-left: 4px;
 }
 .jsmaps-text p {
 	color: #fff;
@@ -1784,7 +1785,7 @@ textarea.form-control {
 	.owl-glossary-carousel .glossary-title,
 	.glossary-term .glossary-title,
 	.lcdm-twitter-box h2 {
-		font-size: 34px;
+		font-size: 24px;
 	}
 	.owl-glossary-carousel .glossary-description, .owl-glossary-carousel .glossary-description p {
 		font-size: 16px;

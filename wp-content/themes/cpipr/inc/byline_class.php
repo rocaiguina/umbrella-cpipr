@@ -48,10 +48,7 @@ class Lcdm_CoAuthors_Byline extends Largo_Byline {
         $by = $this->lang == 'spanish' ? 'Por' : 'By';
 
 
-        echo '<ul class="journalists-byline" style="display: flex;
-        flex-flow: column;"><li class="by"><em>' . $by . '</em></li>' . $authors;
-        // $this->maybe_published_date();
-        //$this->edit_link();
+        echo '<ul style="display: flex; margin-left: 0;"><div class="journalists-byline" style="margin-top: 12px;margin-right: 10px;"><li class="by"><em>' . $by . '</em></li></div><div class="journalists-byline" style="display: flex;flex-flow: column;">' . $authors . '</div>';
         echo '</ul>';
 
         $this->output = ob_get_clean();

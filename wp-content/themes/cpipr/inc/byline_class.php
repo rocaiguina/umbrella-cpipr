@@ -151,7 +151,7 @@ class Lcdm_CoAuthors_Biography_Byline extends Largo_Byline {
      */        
     function avatar() {
         $avatar = largo_get_avatar_src( $this->author_id, 500, '', get_the_author_meta( 'display_name', $this->author_id ) );
-        $output = '<div class="span4" style="display:flex;justify-content:center"><div class="lcdm-journalist-picture" style="background-image:url(' . $avatar[0] . ');height: 220px;width: 220px;border-radius: 50%;background-size: cover;border: 6px solid #5170ae;"></div></div>';
+        $output = '<div class="span4" style="display:flex;justify-content:center"><div class="lcdm-journalist-picture" style="background-image:url(' . $avatar[0] . ');height: 220px;width: 220px;border-radius: 50%;background-size: cover;border: 6px solid #5170ae;margin-top: 20px;"></div></div>';
         echo $output;
     }
 

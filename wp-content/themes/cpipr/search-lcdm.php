@@ -132,7 +132,7 @@
                                     }
                                 } else {
                                     loadMore.remove();
-                                    $('#posts-container').append('No more posts.');
+                                    $('#posts-container').append('Su búsqueda no arrojó resultados.');
                                 }
                             }
                         });

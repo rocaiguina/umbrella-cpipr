@@ -113,10 +113,75 @@ function ajax_pr_cities_contracts () {
     wp_send_json( array('data' => $data) );
 }
 
-add_action('admin_post_nopriv_export_contracts', 'export_contracts');
-add_action('admin_post_export_contracts', 'export_contracts');
+add_action('admin_post_nopriv_export_all_contracts', 'export_all_contracts');
+add_action('admin_post_export_all_contracts', 'export_all_contracts');
 
-function export_contracts () {
+function export_all_contracts () {
+    global $wpdb;
+
+    $lang = isset($_GET['lang']) ? $_GET['lang'] : 'spanish';
+
+    $table_name = $wpdb->prefix . 'municipios';
+    $data = $wpdb->get_results('SELECT municipio, tipo_asistencia, categoria, total_obligado, total_desembolsado, fecha_ultimo_pago FROM ' . $table_name );
+
+    $filename = 'CPI-recuperacion.csv';
+
+    header( 'Cache-Control: must-revalidate, post-check=0, pre-check=0' );
+    header( 'Content-Description: File Transfer' );
+    header( 'Content-type: text/csv; charset=utf-8' );
+    header( "Content-Disposition: attachment; filename={$filename}" );
+    header( 'Expires: 0' );
+    header( 'Pragma: public' );
+    
+    $output_csv = @fopen( 'php://output', 'w' );
+
+    // Put header
+    switch ($lang) {
+        case 'en':
+            $header = array(
+                'Municipality',
+                'Type of assistance',
+                'Category/program',
+                'Total obligated/approved',
+                'Total disbursed',
+                'Date of last payment'
+            );
+        break;
+        default:
+            $header = array(
+                'Municipio',
+                'Tipo de asistencia',
+                'Categoría/programa',
+                'Total obligado/aprobado',
+                'Total desembolsado',
+                'Fecha del último pago'
+            );
+        break;
+    }
+    
+    fputcsv( $output_csv, $header );
+
+    // Put data
+    foreach ( $data as $item ) {
+        $row = array(
+            $item->municipio,
+            $item->tipo_asistencia,
+            $item->categoria,
+            $item->total_obligado,
+            $item->total_desembolsado,
+            $item->fecha_ultimo_pago
+        );
+        fputcsv( $output_csv, $row );
+    }
+
+    fclose($output_csv);
+    die();
+}
+
+add_action('admin_post_nopriv_export_contracts_municipality', 'export_contracts_municipality');
+add_action('admin_post_export_contracts_municipality', 'export_contracts_municipality');
+
+function export_contracts_municipality () {
     global $wpdb;
 
     $municipio = isset($_GET['city']) ? $_GET['city'] : '-1';
@@ -126,7 +191,7 @@ function export_contracts () {
     $query = $wpdb->prepare('SELECT tipo_asistencia, categoria, total_obligado, total_desembolsado, fecha_ultimo_pago FROM ' . $table_name . ' WHERE municipio = %s', $municipio);
     $data = $wpdb->get_results($query);
 
-    $filename = 'contracts_' . sanitize_title($municipio) . '.csv';
+    $filename = 'CPI-' . sanitize_title($municipio) . '.csv';
 
     header( 'Cache-Control: must-revalidate, post-check=0, pre-check=0' );
     header( 'Content-Description: File Transfer' );

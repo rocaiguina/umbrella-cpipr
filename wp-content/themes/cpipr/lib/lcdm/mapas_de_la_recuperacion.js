@@ -11,9 +11,11 @@
             case 'Individual Assistance':
                 tipo_asistencia_class = 'bg-yellow';
             break;
-            case 'Asistencia individual':
+            case 'Asistencia a individuos':
                 tipo_asistencia_class = 'bg-yellow';
             break;
+            default:
+                tipo_asistencia_class = 'bg-yellow';
         }
         var template =
             '<tr class="' + tipo_asistencia_class + '">' +
@@ -115,7 +117,7 @@
               '<div class="assistance-type-legend">' +
                   '<div class="assistance-type assistance-type-th">TIPO DE<br/>ASISTENCIA</div>' +
                   '<div class="assistance-type assistance-type-icon orange"><i class="fa fa-circle"></i> Asistencia<br/>pública</div>' +
-                  '<div class="assistance-type assistance-type-icon yellow"><i class="fa fa-circle"></i> Asistencia<br/>individual</div>' +
+                  '<div class="assistance-type assistance-type-icon yellow"><i class="fa fa-circle"></i> Asistencia<br/>a individuos</div>' +
               '</div>';
           break;
         }

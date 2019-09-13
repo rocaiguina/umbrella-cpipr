@@ -73,8 +73,10 @@
     <!-- Power players section -->
     <div class="lcdm-section lcdm-section-powerplayers">
         <div class="lcdm-section-title">
-            <i class="lcdm-icon lcdm-icon-personajes"></i>
-            <div>PERSONAJES DE LA<br/>RECUPERACIÓN</div>
+            <a href="<?php echo get_permalink( get_page_by_path( 'lcdm-personajes-de-la-recuperacion' ) ) ?>">
+                <i class="lcdm-icon lcdm-icon-personajes"></i>
+                <div>PERSONAJES DE LA<br/>RECUPERACIÓN</div>
+            </a>
         </div>
 
         <div class="owl-hero-carousel">
@@ -138,8 +140,10 @@
     <!-- Mapa de la recuepracion section -->
     <div class="lcdm-section lcdm-section-map">
         <div class="lcdm-section-title">
-            <i class="lcdm-icon lcdm-icon-mapa"></i>
-            <div>MAPA DE LA<br/>RECUPERACIÓN</div>
+            <a href="<?php echo get_permalink( get_page_by_path( 'lcdm-mapas-de-la-recuperacion' ) ) ?>">
+                <i class="lcdm-icon lcdm-icon-mapa"></i>
+                <div>MAPA DE LA<br/>RECUPERACIÓN</div>
+            </a>
         </div>
         <div class="container-fluid">
             <div class="row-fluid">
@@ -239,8 +243,10 @@
     <!-- Infografias section -->
     <div class="lcdm-section lcdm-section-graficas">
         <div class="lcdm-section-title">
-            <i class="lcdm-icon lcdm-icon-graficas"></i>
-            <div>GRÁFICAS</div>
+            <a href="<?php echo get_permalink( get_page_by_path( 'lcdm-graficas' ) ) ?>">
+                <i class="lcdm-icon lcdm-icon-graficas"></i>
+                <div>GRÁFICAS</div>
+            </a>
         </div>
 
         <div class="container-fluid">
@@ -306,8 +312,10 @@
     <!-- Video slider -->
     <div class="lcdm-section lcdm-section-videos">
         <div class="lcdm-section-title">
-            <i class="lcdm-icon lcdm-icon-videos"></i>
-            <div>VIDEOS</div>
+            <a href="<?php echo get_permalink( get_page_by_path( 'lcdm-videos' ) ) ?>">
+                <i class="lcdm-icon lcdm-icon-videos"></i>
+                <div>VIDEOS</div>
+            </a>
         </div>
 
         <div class="owl-hero-carousel">
@@ -379,8 +387,10 @@
     <!-- Ingegration Documentos section -->
     <div class="lcdm-section lcdm-section-documentos">
         <div class="lcdm-section-title">
-            <i class="lcdm-icon lcdm-icon-documentos"></i>
-            <div>DOCUMENTOS</div>                
+            <a href="<?php echo get_permalink( get_page_by_path( 'lcdm-documentos' ) ) ?>">
+                <i class="lcdm-icon lcdm-icon-documentos"></i>
+                <div>DOCUMENTOS</div> 
+            </a>               
         </div>
         <div class="container-fluid">
             <div class="row-fluid">

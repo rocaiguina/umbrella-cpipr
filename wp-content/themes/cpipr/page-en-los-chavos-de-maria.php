@@ -72,8 +72,10 @@
     <!-- Power players section -->
     <div class="lcdm-section lcdm-section-powerplayers">
         <div class="lcdm-section-title">
-            <i class="lcdm-icon lcdm-icon-personajes"></i>
-            <div>POWER<br/>PLAYERS</div>
+            <a href="<?php echo get_permalink( get_page_by_path( 'en-lcdm-personajes-de-la-recuperacion' ) ) ?>">
+                <i class="lcdm-icon lcdm-icon-personajes"></i>
+                <div>POWER<br/>PLAYERS</div>
+            </a>
         </div>
 
         <div class="owl-hero-carousel">
@@ -127,7 +129,7 @@
                         <div class="owl-nav owl-nav-lcdm"></div>
                         <div class="owl-dots"></div>
                     </div>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo get_permalink( get_page_by_path( 'lcdm-personajes-de-la-recuperacion' ) ) ?>" class="btn btn-white-blue">Ver Todo</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo get_permalink( get_page_by_path( 'en-lcdm-personajes-de-la-recuperacion' ) ) ?>" class="btn btn-white-blue">Ver Todo</a>
                 </div>
             </div>
             <?php endif; ?>
@@ -137,8 +139,10 @@
     <!-- Mapa de la recuepracion section -->
     <div class="lcdm-section lcdm-section-map">
         <div class="lcdm-section-title">
-            <i class="lcdm-icon lcdm-icon-mapa"></i>
-            <div>RECOVERY<br/>MAP</div>
+            <a href="<?php echo get_permalink( get_page_by_path( 'en-lcdm-mapas-de-la-recuperacion' ) ) ?>">
+                <i class="lcdm-icon lcdm-icon-mapa"></i>
+                <div>RECOVERY<br/>MAP</div>
+            </a>
         </div>
         <div class="container-fluid">
             <div class="row-fluid">
@@ -238,8 +242,10 @@
     <!-- Infografias section -->
     <div class="lcdm-section lcdm-section-graficas">
         <div class="lcdm-section-title">
-            <i class="lcdm-icon lcdm-icon-graficas"></i>
-            <div>GRAPHICS</div>
+            <a href="<?php echo get_permalink( get_page_by_path( 'en-lcdm-graficas' ) ) ?>">
+                <i class="lcdm-icon lcdm-icon-graficas"></i>
+                <div>GRAPHICS</div>
+            </a>
         </div>
 
         <div class="container-fluid">
@@ -305,8 +311,11 @@
     <!-- Video slider -->
     <div class="lcdm-section lcdm-section-videos">
         <div class="lcdm-section-title">
-            <i class="lcdm-icon lcdm-icon-videos"></i>
-            <div>VIDEOS</div>
+            <a href="<?php echo get_permalink( get_page_by_path( 'en-lcdm-videos' ) ) ?>">
+                <i class="lcdm-icon lcdm-icon-videos"></i>
+                <div>VIDEOS</div>
+            </a>
+            
         </div>
 
         <div class="owl-hero-carousel">
@@ -369,7 +378,7 @@
                         <div class="owl-nav owl-nav-lcdm"></div>
                         <div class="owl-dots"></div>
                     </div>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo get_permalink( get_page_by_path( 'lcdm-videos' ) ) ?>" class="btn btn-white-blue">View All</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo get_permalink( get_page_by_path( 'en-lcdm-videos' ) ) ?>" class="btn btn-white-blue">View All</a>
                 </div>
             </div>
             <?php endif; ?>
@@ -379,8 +388,11 @@
     <!-- Ingegration Documentos section -->
     <div class="lcdm-section lcdm-section-documentos">
         <div class="lcdm-section-title">
-            <i class="lcdm-icon lcdm-icon-documentos"></i>
-            <div>DOCUMENTS</div>                
+            <a href="<?php echo get_permalink( get_page_by_path( 'en-lcdm-documentos' ) ) ?>">
+                <i class="lcdm-icon lcdm-icon-documentos"></i>
+                <div>DOCUMENTS</div> 
+            </a>
+                           
         </div>
         <div class="container-fluid">
             <div class="row-fluid">

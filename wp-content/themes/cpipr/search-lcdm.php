@@ -57,14 +57,7 @@
 
     <body <?php body_class(); ?>>
         <?php
-            $lang = isset($_GET['lang']) ? $_GET['lang'] : 'spanish';
-            switch ($lang) {
-                case 'en':
-                    $lang = 'english';
-                break;
-                default:
-                    $lang = 'spanish';
-            }
+            $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
         ?>
         <?php $lcdm_active_menu = 'historias'; ?>
         <?php get_template_part('partials/los-chavos-de-maria/' . ($lang == 'spanish' ? 'es' : 'en') .'/header'); ?>
@@ -156,7 +149,6 @@
                     // init Tagify script on the above inputs
                     tagify = new Tagify(input, {
                         transformTag: function (a) {
-                            console.log(a.value);
                             return a.value;
                         }
                     });

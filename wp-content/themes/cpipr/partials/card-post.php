@@ -2,7 +2,7 @@
     <div class="card card-inphographic">
         <div class="card-image-top">
             <!-- <div class="lcdm-owl-overlay"></div> -->
-            <?php echo get_the_post_thumbnail(null, $size = ('rect_thumb'), $attr = '') ?>
+            <?php echo get_the_post_thumbnail(null, $size = ('horizontal_thumb'), $attr = '') ?>
       
         </div>
         <div class="card-body">

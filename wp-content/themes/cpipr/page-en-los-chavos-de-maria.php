@@ -114,11 +114,9 @@
                         while ($chavos_query->have_posts()) {
                             $chavos_query->the_post();
                     ?>
-                    <div class="owl-hero-item lcdm-secondary-slide" style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')">
-                        <a href="<?php the_permalink();?>">
-                            <!-- <div class="lcdm-owl-overlay"></div> -->
-                        </a>
-                    </div>
+                    <a href="<?php the_permalink();?>">
+                        <div class="owl-hero-item lcdm-secondary-slide" style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')"></div>
+                    </a>
                 </div>
                 <?php } wp_reset_postdata();?>
             </div>
@@ -288,11 +286,9 @@
                         while ($chavos_query->have_posts()) {
                             $chavos_query->the_post();
                     ?>
-                    <div class="owl-hero-item lcdm-secondary-slide" style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')">
-                        <a href="<?php the_permalink();?>">
-                            <!-- <div class="lcdm-owl-overlay"></div> -->
-                        </a>
-                    </div>
+                    <a href="<?php the_permalink();?>">
+                        <div class="owl-hero-item lcdm-secondary-slide" style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')"></div>
+                    </a>
                     <?php } wp_reset_postdata();?>
                 </div>
             </div>

@@ -1745,7 +1745,7 @@ textarea.form-control {
 		position: relative;
 		right: 0;
 		top: 0;
-	}
+	} > 
 	.jsmaps-wrapper .jsmaps {
 		padding-top: 20px;
 	}
@@ -1756,15 +1756,15 @@ textarea.form-control {
  
 /* Landscape phones and down */
 @media (max-width: 480px) {
-	.lcdm-section-title {
+	.lcdm-section-title > a > div, .lcdm-section-title {
 		font-size: 12px;
 		line-height: 14px;
-		padding: 20px 15px;
+		/* padding: 20px 15px; */
 	}
-	.lcdm-section-title > i {
+	.lcdm-section-title > a > i, .lcdm-section-title > i {
 		font-size: 50px;
 	}
-	.lcdm-section-title > div {
+	.lcdm-section-title  {
 		margin-top: 5px;
 	}
 	.owl-carousel .owl-play-icon {
@@ -1796,7 +1796,7 @@ textarea.form-control {
 
 /* Landscape phone and down */
 @media (max-width: 768px) {
-	.lcdm-hero-page-title-icon i {
+	.lcdm-hero-page-title-icon > a > i {
 		font-size: 70px;
 	}
 	.lcdm-hero-page-title {

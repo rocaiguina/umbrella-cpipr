@@ -255,7 +255,8 @@ function ajax_lcdm_historias () {
             array(
                 'taxonomy' => 'post_tag',
                 'field'    => 'slug',
-                'terms'    => 'news',
+                'terms'    => array('news', 'graphic', 'powerplayer'),
+                'operator' => 'IN'
             ),
             array(
                 'taxonomy' => 'post_tag',

@@ -90,6 +90,25 @@ function lcdm_post_gallery ($output, $attr) {
     return $output;
 }
 
+/**
+ * Filter for adding embedded objects into lcdm posts
+ */
+function filter_lcdm_embeds( $content ) {
+    if(is_page_template('lcdm-single.php')) {
+        $content = preg_replace( "/<object/Si", '</div><div class="embed-container"><object', $content );
+        $content = preg_replace( "/<\/object>/Si", '</object></div><div class="container">', $content );
+        
+        /**
+         * Added iframe filtering, iframes are bad.
+         */
+        $content = preg_replace( "/<iframe.+?src=\"(.+?)\"/Si", '</div><div class="embed-container"><iframe src="\1" frameborder="0" allowfullscreen>', $content );
+        $content = preg_replace( "/<\/iframe>/Si", '</iframe></div><div class="container">', $content );
+        return $content;
+    }
+    return $content;
+}
+add_filter( 'the_content', 'filter_lcdm_embeds' );
+
 
 //------------------------------------- Add Ajax Actions ---------------------------------------
 // Ensures you can call the functions via AJAX when you want to use them.

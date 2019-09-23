@@ -13,7 +13,7 @@
                                 <h5>ABOUT THE PROJECT</h5>
                             </div>
                             <div class="media-body">
-                                <p>#LosChavosDeMaría es un proyecto del Centro de Periodismo Investigativo enfocado en fiscalizar el proceso de recuperación en Puerto Rico luego de los huracanes Irma y María en el 2017. Esta iniciativa es posible con el apoyo de la Red de Fundaciones de Puerto Rico, Oxfam y Report for America.</p>
+                                <p>Maria: The Money Trail is a project of the Center for Investigative Journalism focused on putting the spotlight on the recovery process in Puerto Rico after Hurricanes Irma and María in 2017. This initiative is possible with the support of the Puerto Rico Foundations Network, Oxfam America and Report for America.</p>
                             </div>
                         </div>
 

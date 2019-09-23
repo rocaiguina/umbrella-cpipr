@@ -266,6 +266,17 @@
 	opacity: 1;
 }
 
+/* Top hero fixed carousel */
+.owl-hero-carousel.owl-hero-fixed-height .owl-hero-item {
+	height: 750px;
+}
+.owl-hero-carousel.owl-hero-fixed-height .owl-hero-item .owl-hero-caption {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
 /* Top hero carousel */
 .owl-hero-carousel {
 	position: relative;
@@ -1661,12 +1672,18 @@ textarea.form-control {
 	.lcdm-section-post .container {
 		padding: 0 200px;
 	}
+	.owl-hero-carousel.owl-hero-fixed-height .owl-hero-item {
+		height: 750px;
+	}
 }
 
 /* Medium desktop */
 @media (min-width: 980px) and (max-width: 1199px) {
 	.lcdm-section-post .container {
 		padding: 0 100px;
+	}
+	.owl-hero-carousel.owl-hero-fixed-height .owl-hero-item {
+		height: 650px;
 	}
 }
  
@@ -1679,6 +1696,9 @@ textarea.form-control {
 	.owl-hero-controls {
 		bottom: 22px;
 		text-align: left;
+	}
+	.owl-hero-carousel.owl-hero-fixed-height .owl-hero-item {
+		height: 550px;
 	}
 }
  
@@ -1761,6 +1781,9 @@ textarea.form-control {
 	.jsmaps-wrapper .jsmaps-text {
 		padding-top: 100px !important;
 	}
+	.owl-hero-carousel.owl-hero-fixed-height .owl-hero-item {
+		height: 450px;
+	}
 }
  
 /* Landscape phones and down */
@@ -1807,6 +1830,9 @@ textarea.form-control {
 	.jsmaps-wrapper .jsmaps svg {
 		width: 96%;
 		margin-left: 2%;
+	}
+	.owl-hero-carousel.owl-hero-fixed-height .owl-hero-item {
+		height: 350px;
 	}
 }
 

@@ -64,7 +64,13 @@ function lcdm_caption_shortcode ($text, $atts, $content ) {
         $id = 'id="' . esc_attr($id) . '" ';
     }
 
-    $out = sprintf( '<div %s class="wp-caption module image %s" style="max-width: %spx;"><div class="wp-caption-img-wrap">%s</div>', $id, $align, $width, do_shortcode( $content ) );
+    // Force to render full size image if lcdm single template.
+    if (is_page_template('lcdm-single.php')) {
+        $out = sprintf( '<div %s class="wp-caption module image %s"><div class="wp-caption-img-wrap">%s</div>', $id, $align, wp_get_attachment_image($post_id, 'full') );
+    } else {
+        $out = sprintf( '<div %s class="wp-caption module image %s" style="max-width: %spx;"><div class="wp-caption-img-wrap">%s</div>', $id, $align, $width, do_shortcode( $content ) );
+    }
+    
     if ( $credit ) {
         $out .= sprintf( '<p class="wp-media-credit">%s</p>', $credit );
     }

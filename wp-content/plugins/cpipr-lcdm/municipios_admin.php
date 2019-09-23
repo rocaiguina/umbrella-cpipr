@@ -134,8 +134,15 @@ function lcdm_handle_import_municipios_post () {
         if ($truncated) {
             $imported = $wpdb->query('LOAD DATA LOCAL INFILE "' . $csv_path . '" INTO TABLE ' . $table_name . ' CHARACTER SET UTF8 FIELDS TERMINATED BY \',\' LINES TERMINATED BY \'\n\' IGNORE 1 LINES (municipio, tipo_asistencia, desastre, categoria, descripcion_categoria, total_obligado, fecha_obligacion, total_desembolsado, total_pareo_fondos, fecha_ultimo_pago, fecha_actualizacion)');
             if ($imported === 0) {
-                return '
-                    <div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible"> 
+                $last_updated = get_option('lcdm_municipios_updated_at');
+
+                if ($last_updated) {
+                    update_option('lcdm_municipios_updated_at', date('Y-m-d'));
+                } else {
+                    add_option('lcdm_municipios_updated_at', date('Y-m-d'));
+                }
+                
+                return '<div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible"> 
                         <p><strong>Successful data imported.</strong></p>
                         <button type="button" class="notice-dismiss">
                             <span class="screen-reader-text">Dismiss this notice.</span>

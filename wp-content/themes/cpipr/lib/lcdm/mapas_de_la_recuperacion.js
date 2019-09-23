@@ -56,7 +56,7 @@
         return template;
     }
 
-    function buildContractsTable (data, city) {
+    function buildContractsTable (data, updated_at, city) {
         var template = '<div class="table-scroll"><div class="table-responsive"><table>';
         template += buildContractsHeader();
         template += '<tbody>';
@@ -86,8 +86,14 @@
           updatedTxt = 'Updated at';
         }
 
+        if (updated_at) {
+          updatedTxt += ': ' + updated_at;
+        } else {
+          updatedTxt = '';
+        }
+
         template += '<div class="contracts-export">' + 
-            '<div>' + updatedTxt + ': 15/08/2019' + 
+            '<div>' + updatedTxt + 
                 '<a href="' + download_all_link + '" class="btn btn-blue" target="_blank">' + download_all_Txt + '</a>' + 
                 '<a href="' + download_municipality_link + '" class="btn btn-blue" style="margin-right: 4px" target="_blank">' + download_municipality_Txt + '</a>' +
             '</div>' +
@@ -129,7 +135,7 @@
                 type: 'get',
                 url: WP_ADMIN_AJAX_URL + '?action=pr_cities_contracts&lang=' + LCDM_LANG + '&city=' + data.name,
                 success: function (response) {
-                    var table = buildContractsTable(response.data, data.name);
+                    var table = buildContractsTable(response.data, response.updated_at, data.name);
                     $('#jsmap-description').html(table);
                     $('.jsmaps-text').append(buildAssistanceLegend());
                 }

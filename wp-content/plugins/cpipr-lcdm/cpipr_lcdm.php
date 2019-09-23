@@ -151,7 +151,7 @@ function ajax_pr_cities_contracts () {
         array_push($response, $row);
     }
 
-    wp_send_json( array('data' => $response) );
+    wp_send_json( array('data' => $response, 'updated_at' => get_option('lcdm_municipios_updated_at')) );
 }
 
 add_action('admin_post_nopriv_export_all_contracts', 'export_all_contracts');

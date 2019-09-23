@@ -1246,6 +1246,7 @@ textarea.form-control {
 .card-post-date {
 	font-family: "Roboto", Helvetica, Arial, sans-serif;
 	font-size: 14px;
+	line-height: 30px;
 	margin-bottom: 0;
 }
 .card-title a {

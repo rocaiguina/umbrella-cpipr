@@ -126,7 +126,7 @@
                                 array(
                                     'taxonomy' => 'post_tag',
                                     'field'    => 'slug',
-                                    'terms'    => array('news', 'graphic', 'powerplayer', 'video'),
+                                    'terms'    => array('news'),
                                     'operator' => 'IN'
                                 ),
                                 array(

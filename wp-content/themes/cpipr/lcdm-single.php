@@ -101,7 +101,7 @@
                     <div class="span2"></div>
                     <div class="span8">
                         <div class="lcdm-journalist">
-                            <?php $lang == 'spanish' ? lcdm_byline(true, true) : lcdm_byline(true, true, english) ?>
+                            <?php $lang == 'spanish' ? lcdm_byline(true, true) : lcdm_byline(true, true, 'english') ?>
                         </div>
                     </div>
                 </div>

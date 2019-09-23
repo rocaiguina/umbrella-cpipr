@@ -733,4 +733,35 @@ function lcdm_landing_redirect () {
     }
 }
 
+/*
+ * Add extra fields for user profile
+ */
+
+add_action( 'show_user_profile', 'extra_user_profile_fields' );
+add_action( 'edit_user_profile', 'extra_user_profile_fields' );
+
+function extra_user_profile_fields( $user ) { ?>
+    <h3><?php _e("Extra profile information", "blank"); ?></h3>
+
+    <table class="form-table">
+    <tr>
+        <th><label for="biographical_info_english"><?php _e("Biographical Info (English)"); ?></label></th>
+        <td>
+            <textarea rows="5" cols="30" name="biographical_info_english" id="biographical_info_english"><?php echo esc_attr( get_the_author_meta( 'biographical_info_english', $user->ID ) ); ?></textarea><br />
+            <span class="description"><?php _e("Share a little biographical information to fill out your profile. This may be shown publicly."); ?></span>
+        </td>
+    </tr>
+    </table>
+<?php }
+
+add_action( 'personal_options_update', 'save_extra_user_profile_fields' );
+add_action( 'edit_user_profile_update', 'save_extra_user_profile_fields' );
+
+function save_extra_user_profile_fields( $user_id ) {
+    if ( !current_user_can( 'edit_user', $user_id ) ) { 
+        return false; 
+    }
+    update_user_meta( $user_id, 'biographical_info_english', $_POST['biographical_info_english'] );
+}
+
 ?>

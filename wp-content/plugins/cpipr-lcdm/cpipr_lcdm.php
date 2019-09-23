@@ -721,6 +721,10 @@ function lcdm_landing_redirect () {
         wp_redirect( get_term_link( 'los-chavos-de-maria', 'series' ) );
         die;
     }
+    if (is_category('los-chavos-de-maria')) {
+        wp_redirect( get_term_link( 'los-chavos-de-maria', 'series' ) );
+        die;
+    }
 }
 
 ?>

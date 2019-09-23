@@ -295,3 +295,24 @@ function get_custom_post_type_template( $single_template ) {
     return $single_template;
 }
 add_filter( 'single_template', 'get_custom_post_type_template' );
+
+
+/* Add LCDM custom widget areas */
+function lcdm_widgets_init() {
+
+    register_sidebar( array(
+        'id'            => 'top_bar_lcdm_spanish',
+        'name'          => 'Top Bar Sponsors Spanish',
+        'before_widget' => '<div class="lcdm-top-banner">',
+        'after_widget'  => '</div>'
+    ) );
+
+    register_sidebar( array(
+        'id'            => 'top_bar_lcdm_english',
+        'name'          => 'Top Bar Sponsors English',
+        'before_widget' => '<div class="lcdm-top-banner">',
+        'after_widget'  => '</div>'
+    ) );
+
+}
+add_action( 'widgets_init', 'lcdm_widgets_init' );

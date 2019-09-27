@@ -2,6 +2,7 @@
 
 $GLOBALS['lcdm_lang'] = array(
     'en' => array(
+        'n/a'                               => 'n/a',
         'Municipality'                      => 'Municipality',
         'Type of assistance'                => 'Type of assistance',
         'Category/program'                  => 'Category/program',
@@ -21,6 +22,7 @@ $GLOBALS['lcdm_lang'] = array(
         'Utilities'                         => 'Utilities'
     ),
     'es' => array(
+        'n/a'                               => 'n/d',
         'Municipality'                      => 'Municipio',
         'Type of assistance'                => 'Tipo de asistencia',
         'Category/program'                  => 'Categoría/programa',

@@ -140,18 +140,28 @@ function ajax_pr_cities_contracts () {
 
     $response = array();
 
+    $date_format = $lang == 'en' ? 'm/d/Y' : 'd/m/Y';
+
     foreach ( $data as $item ) {
         $row = array(
             'tipo_asistencia' => $item->tipo_asistencia,
             'categoria' => empty($translate[$item->categoria]) ? $item->categoria : $translate[$item->categoria],
             'total_obligado' => $item->total_obligado,
-            'total_desembolsado' => $item->total_desembolsado,
-            'fecha_ultimo_pago' => $item->fecha_ultimo_pago
+            'total_desembolsado' => $item->total_desembolsado
         );
+
+        if (empty($item->fecha_ultimo_pago) || $item->fecha_ultimo_pago == '0000-00-00') {
+            $row['fecha_ultimo_pago'] = $translate['n/a'];
+        } else {
+            $row['fecha_ultimo_pago'] = date($date_format, strtotime($item->fecha_ultimo_pago));
+        }
+
         array_push($response, $row);
     }
 
-    wp_send_json( array('data' => $response, 'updated_at' => get_option('lcdm_municipios_updated_at')) );
+    $updated_at = date($date_format, strtotime(get_option('lcdm_municipios_updated_at')));
+
+    wp_send_json( array('data' => $response, 'updated_at' => $updated_at) );
 }
 
 add_action('admin_post_nopriv_export_all_contracts', 'export_all_contracts');

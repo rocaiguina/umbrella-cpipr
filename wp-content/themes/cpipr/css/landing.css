@@ -1219,8 +1219,12 @@ textarea.form-control {
 .contracts-export {
 	font-size: 16px;
 }
+.contracts-export span {
+	float: left;
+}
 .contracts-export a.btn {
 	float: right;
+	margin-top: 4px;
 }
 
 /* Video archive */
@@ -1857,6 +1861,9 @@ textarea.form-control {
 	.owl-hero-item-parallax .owl-hero-caption {
 		margin-top: 0 !important;
 		position: relative;
+	}
+	.contracts-export span {
+		float: none;
 	}
 }
 

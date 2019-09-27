@@ -81,9 +81,11 @@
 
         var download_all_Txt = 'Descargar todo';
         var updatedTxt = 'Fecha Actualización';
+        var sourceCor3 = 'Fuente: COR3';
         if (LCDM_LANG == 'en') {
           download_all_Txt = 'Download all';
           updatedTxt = 'Updated at';
+          sourceCor3 = 'Source: COR3';
         }
 
         if (updated_at) {
@@ -93,7 +95,8 @@
         }
 
         template += '<div class="contracts-export">' + 
-            '<div>' + updatedTxt + 
+            '<div>' + 
+                '<span>' + updatedTxt + '<br/><small>' + sourceCor3 + '</small></span>' +
                 '<a href="' + download_all_link + '" class="btn btn-blue" target="_blank">' + download_all_Txt + '</a>' + 
                 '<a href="' + download_municipality_link + '" class="btn btn-blue" style="margin-right: 4px" target="_blank">' + download_municipality_Txt + '</a>' +
             '</div>' +

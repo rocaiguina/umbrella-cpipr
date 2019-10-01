@@ -11,7 +11,7 @@
             default:
                 tipo_asistencia_class = 'bg-yellow';
         }
-        console.log(row.total_desembolsado);
+      
         var template =
             '<tr class="' + tipo_asistencia_class + '">' +
                 '<td></td>' +

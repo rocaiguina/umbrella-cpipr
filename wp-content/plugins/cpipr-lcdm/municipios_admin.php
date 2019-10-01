@@ -66,7 +66,6 @@ function lcdm_all_municipios_admin_page () {
                 <th>Tipo de asistencia</th>
                 <th>Categoria/programa</th>
                 <th>Total obligado/aprobado</th>
-                <th>Fecha de obligación</th>
                 <th>Total desembolsado</th>
                 <th>Total pareo de fondos</th>
                 <th>Fecha de último pago</th>
@@ -84,7 +83,6 @@ function lcdm_all_municipios_admin_page () {
                 <td>' . $value->tipo_asistencia . '</td>
                 <td>' . $value->categoria . '</td>
                 <td>' . $value->total_obligado . '</td>
-                <td>' . $value->fecha_obligacion . '</td>
                 <td>' . $value->total_desembolsado . '</td>
                 <td>' . $value->total_pareo_fondos . '</td>
                 <td>' . $value->fecha_ultimo_pago . '</td>
@@ -130,7 +128,7 @@ function lcdm_handle_import_municipios_post () {
         $truncated = $wpdb->query('TRUNCATE TABLE ' . $table_name);
 
         if ($truncated) {
-            $imported = $wpdb->query('LOAD DATA LOCAL INFILE "' . $csv_path . '" INTO TABLE ' . $table_name . ' CHARACTER SET UTF8 FIELDS TERMINATED BY \',\' LINES TERMINATED BY \'\n\' IGNORE 1 LINES (municipio, tipo_asistencia, categoria, total_obligado, fecha_obligacion, total_desembolsado, total_pareo_fondos, fecha_ultimo_pago, fecha_actualizacion)');
+            $imported = $wpdb->query('LOAD DATA LOCAL INFILE "' . $csv_path . '" INTO TABLE ' . $table_name . ' CHARACTER SET UTF8 FIELDS TERMINATED BY \',\' LINES TERMINATED BY \'\n\' IGNORE 1 LINES (municipio, tipo_asistencia, categoria, total_obligado, total_desembolsado, total_pareo_fondos, fecha_ultimo_pago, fecha_actualizacion)');
             if ($imported === 0) {
                 $last_updated = get_option('lcdm_municipios_updated_at');
 

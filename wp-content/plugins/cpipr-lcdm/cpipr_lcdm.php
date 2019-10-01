@@ -22,7 +22,6 @@ function lcdm_install_municipios_db_table () {
       tipo_asistencia varchar(60) NULL,
       categoria varchar(80) NULL,
       total_obligado varchar(15) NULL,
-      fecha_obligacion date NULL,
       total_desembolsado varchar(15) NULL,
       total_pareo_fondos varchar(15) NULL,
       fecha_ultimo_pago date NULL,

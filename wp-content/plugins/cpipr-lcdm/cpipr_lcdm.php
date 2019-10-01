@@ -139,13 +139,21 @@ function ajax_pr_cities_contracts () {
 
     $date_format = $lang == 'en' ? 'm/d/Y' : 'd/m/Y';
 
+    
+    
     foreach ( $data as $item ) {
         $row = array(
             'tipo_asistencia' => $item->tipo_asistencia,
             'categoria' => empty($translate[$item->categoria]) ? $item->categoria : $translate[$item->categoria],
-            'total_obligado' => $item->total_obligado,
-            'total_desembolsado' => $item->total_desembolsado
+            'total_obligado' => $item->total_obligado
         );
+
+        if ($item->total_desembolsado == '') {
+            $row['total_desembolsado'] = $translate['n/a'];
+        } else {
+            setlocale(LC_MONETARY, 'en_US.utf_8');
+            $row['total_desembolsado'] = money_format('%n', $item->total_desembolsado);
+        }
 
         if (empty($item->fecha_ultimo_pago) || $item->fecha_ultimo_pago == '0000-00-00') {
             $row['fecha_ultimo_pago'] = $translate['n/a'];
@@ -184,6 +192,7 @@ function export_all_contracts () {
     $output_csv = @fopen( 'php://output', 'w' );
 
     $translate = empty($GLOBALS['lcdm_lang'][$lang]) ? $GLOBALS['lcdm_lang']['es'] : $GLOBALS['lcdm_lang'][$lang];
+    $date_format = $lang == 'en' ? 'm/d/Y' : 'd/m/Y';
 
     $header = array(
         $translate['Municipality'],
@@ -203,9 +212,19 @@ function export_all_contracts () {
             empty($translate[$item->tipo_asistencia]) ? $item->tipo_asistencia : $translate[$item->tipo_asistencia],
             empty($translate[$item->categoria]) ? $item->categoria : $translate[$item->categoria],
             $item->total_obligado,
-            $item->total_desembolsado,
-            $item->fecha_ultimo_pago
         );
+        if ($item->total_desembolsado == '') {
+            $row['total_desembolsado'] = $translate['n/a'];
+        } else {
+            $row['total_desembolsado'] = $item->total_desembolsado;
+        }
+
+        if (empty($item->fecha_ultimo_pago) || $item->fecha_ultimo_pago == '0000-00-00') {
+            $row['fecha_ultimo_pago'] = $translate['n/a'];
+        } else {
+            $row['fecha_ultimo_pago'] = date($date_format, strtotime($item->fecha_ultimo_pago));
+        }
+        
         fputcsv( $output_csv, $row );
     }
 
@@ -238,9 +257,9 @@ function export_contracts_municipality () {
     $output_csv = @fopen( 'php://output', 'w' );
 
     $translate = empty($GLOBALS['lcdm_lang'][$lang]) ? $GLOBALS['lcdm_lang']['es'] : $GLOBALS['lcdm_lang'][$lang];
+    $date_format = $lang == 'en' ? 'm/d/Y' : 'd/m/Y';
 
     $header = array(
-        $translate['Municipality'],
         $translate['Type of assistance'],
         $translate['Category/program'],
         $translate['Total obligated/approved'],
@@ -255,10 +274,21 @@ function export_contracts_municipality () {
         $row = array(
             empty($translate[$item->tipo_asistencia]) ? $item->tipo_asistencia : $translate[$item->tipo_asistencia],
             empty($translate[$item->categoria]) ? $item->categoria : $translate[$item->categoria],
-            $item->total_obligado,
-            $item->total_desembolsado,
-            $item->fecha_ultimo_pago
+            $item->total_obligado
         );
+
+        if ($item->total_desembolsado == '') {
+            $row['total_desembolsado'] = $translate['n/a'];
+        } else {
+            $row['total_desembolsado'] = $item->total_desembolsado;
+        }
+
+        if (empty($item->fecha_ultimo_pago) || $item->fecha_ultimo_pago == '0000-00-00') {
+            $row['fecha_ultimo_pago'] = $translate['n/a'];
+        } else {
+            $row['fecha_ultimo_pago'] = date($date_format, strtotime($item->fecha_ultimo_pago));
+        }
+       
         fputcsv( $output_csv, $row );
     }
 
